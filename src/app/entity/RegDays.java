@@ -1,15 +1,16 @@
 package app.entity;
 
 import java.sql.Date;
-import java.sql.Time;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 
 import org.springframework.stereotype.Component;
 
+@Entity
 @Component
 public class RegDays {
 	
@@ -31,10 +32,12 @@ public class RegDays {
 	private int number;
 	
 	@Column
-	private Time time_start;
+	private Date time_start;
+	
+	//or gawing time?
 	
 	@Column
-	private Time time_end;
-	
+	private Date time_end;
+
 	//ask sir about Date.java.util, calendar, Date.java.sql
 }
