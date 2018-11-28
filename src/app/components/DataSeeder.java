@@ -1,6 +1,5 @@
 package app.components;
 
-import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -60,6 +59,9 @@ public class DataSeeder {
 			//PROBLEM WITH DATE ONCE INPUT IN SQL
 			liabEntry = makeLiabEntry((long) 1, "Absent", (long) 1, (java.util.Date) df.parse("2018-11-21"), "Hi");
 			liabEntryRepo.save(liabEntry);
+			
+			liabEntry = makeLiabEntry((long) 1, "Late", (long) 1, (java.util.Date) df.parse("2018-11-21"), "Hello");
+			liabEntryRepo.save(liabEntry);
 		}
 		
 	}
@@ -75,16 +77,16 @@ public class DataSeeder {
 		return l;
 	}
 	
-	private LiabEntry makeLiabEntry(Long vol_id, String liab_title, Long day_id, java.util.Date lien_date, String lien_desc) {
+	private LiabEntry makeLiabEntry(Long volId, String liabTitle, Long dayId, java.util.Date lienDate, String lienDesc) {
 		LiabEntry le = new LiabEntry();
 		
-		Long liab_id = liabRepo.findByTitle(liab_title).getId();
+		Long liabId = liabRepo.findByTitle(liabTitle).getId();
 		
-		le.setDay_id(day_id);
-		le.setLiab_id(liab_id);
-		le.setLien_date(lien_date);
-		le.setLien_desc(lien_desc);
-		le.setVol_id(vol_id);
+		le.setDayId(dayId);
+		le.setLiabId(liabId);
+		le.setLienDate(lienDate);
+		le.setLienDesc(lienDesc);
+		le.setVolId(volId);
 		
 		return le;		
 	}

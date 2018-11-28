@@ -20,27 +20,19 @@ public class LiabEntry {
 	private Long id;
 	
 	@Column
-	private Long vol_id;
+	private Long volId;
 	
 	@Column
-	private Long liab_id;
+	private Long liabId;
 	
 	@Column
-	private Long day_id;
+	private Long dayId;
 	
 	@Column
-	private java.util.Date lien_date;
+	private java.util.Date lienDate;
 	
 	@Column
-	private String lien_desc;
-
-	public String getLien_desc() {
-		return lien_desc;
-	}
-
-	public void setLien_desc(String lien_desc) {
-		this.lien_desc = lien_desc;
-	}
+	private String lienDesc;
 
 	public Long getId() {
 		return id;
@@ -50,42 +42,50 @@ public class LiabEntry {
 		this.id = id;
 	}
 
-	public Long getVol_id() {
-		return vol_id;
+	public Long getVolId() {
+		return volId;
 	}
 
-	public void setVol_id(Long vol_id) {
-		this.vol_id = vol_id;
+	public void setVolId(Long volId) {
+		this.volId = volId;
 	}
 
-	public Long getLiab_id() {
-		return liab_id;
+	public Long getLiabId() {
+		return liabId;
 	}
 
-	public void setLiab_id(Long liab_id) {
-		this.liab_id = liab_id;
+	public void setLiabId(Long liabId) {
+		this.liabId = liabId;
 	}
 
-	public Long getDay_id() {
-		return day_id;
+	public Long getDayId() {
+		return dayId;
 	}
 
-	public void setDay_id(Long day_id) {
-		this.day_id = day_id;
+	public void setDayId(Long dayId) {
+		this.dayId = dayId;
 	}
 
-	public java.util.Date getLien_date() {
-		return lien_date;
+	public java.util.Date getLienDate() {
+		return lienDate;
 	}
 
-	public void setLien_date(java.util.Date lien_date) {
-		this.lien_date = lien_date;
+	public void setLienDate(java.util.Date lienDate) {
+		this.lienDate = lienDate;
+	}
+
+	public String getLienDesc() {
+		return lienDesc;
+	}
+
+	public void setLienDesc(String lienDesc) {
+		this.lienDesc = lienDesc;
 	}
 
 	@Override
 	public String toString() {
-		return "LiabEntry [id=" + id + ", vol_id=" + vol_id + ", liab_id=" + liab_id + ", day_id=" + day_id
-				+ ", lien_date=" + lien_date + ", lien_desc=" + lien_desc + "]";
+		return "LiabEntry [id=" + id + ", volId=" + volId + ", liabId=" + liabId + ", dayId=" + dayId + ", lienDate="
+				+ lienDate + ", lienDesc=" + lienDesc + "]";
 	}
-	
+
 }

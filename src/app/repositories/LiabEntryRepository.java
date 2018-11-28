@@ -10,5 +10,5 @@ import app.entity.LiabEntry;
 @Repository
 public interface LiabEntryRepository extends JpaRepository<LiabEntry, Long>{
 
-	List<LiabEntry> findByLiabId(Long liab_id);
+	List<LiabEntry> findByLiabId(Long liabId);
 }

@@ -32,12 +32,12 @@ public class RegDay {
 	private int number;
 	
 	@Column
-	private Date time_start;
+	private Date timeStart;
 	
 	//or gawing time?
 	
 	@Column
-	private Date time_end;
+	private Date timeEnd;
 
 	public Long getId() {
 		return id;
@@ -79,27 +79,28 @@ public class RegDay {
 		this.number = number;
 	}
 
-	public Date getTime_start() {
-		return time_start;
+	public Date getTimeStart() {
+		return timeStart;
 	}
 
-	public void setTime_start(Date time_start) {
-		this.time_start = time_start;
+	public void setTimeStart(Date timeStart) {
+		this.timeStart = timeStart;
 	}
 
-	public Date getTime_end() {
-		return time_end;
+	public Date getTimeEnd() {
+		return timeEnd;
 	}
 
-	public void setTime_end(Date time_end) {
-		this.time_end = time_end;
+	public void setTimeEnd(Date timeEnd) {
+		this.timeEnd = timeEnd;
 	}
 
 	@Override
 	public String toString() {
 		return "RegDay [id=" + id + ", type=" + type + ", desc=" + desc + ", day=" + day + ", number=" + number
-				+ ", time_start=" + time_start + ", time_end=" + time_end + "]";
+				+ ", timeStart=" + timeStart + ", timeEnd=" + timeEnd + "]";
 	}
+
 	
 	
 }
