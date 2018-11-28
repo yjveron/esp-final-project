@@ -1,5 +1,8 @@
 package app.components;
 
-public class LiabEntryComponent {
+import org.springframework.stereotype.Component;
 
+@Component
+public class LiabEntryComponent {
+	
 }

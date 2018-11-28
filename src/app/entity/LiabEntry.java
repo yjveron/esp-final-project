@@ -29,7 +29,18 @@ public class LiabEntry {
 	private Long day_id;
 	
 	@Column
-	private Date lien_date;
+	private java.util.Date lien_date;
+	
+	@Column
+	private String lien_desc;
+
+	public String getLien_desc() {
+		return lien_desc;
+	}
+
+	public void setLien_desc(String lien_desc) {
+		this.lien_desc = lien_desc;
+	}
 
 	public Long getId() {
 		return id;
@@ -63,18 +74,18 @@ public class LiabEntry {
 		this.day_id = day_id;
 	}
 
-	public Date getLien_date() {
+	public java.util.Date getLien_date() {
 		return lien_date;
 	}
 
-	public void setLien_date(Date lien_date) {
+	public void setLien_date(java.util.Date lien_date) {
 		this.lien_date = lien_date;
 	}
 
 	@Override
 	public String toString() {
 		return "LiabEntry [id=" + id + ", vol_id=" + vol_id + ", liab_id=" + liab_id + ", day_id=" + day_id
-				+ ", lien_date=" + lien_date + "]";
+				+ ", lien_date=" + lien_date + ", lien_desc=" + lien_desc + "]";
 	}
 	
 }
