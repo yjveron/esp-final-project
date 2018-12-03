@@ -21,14 +21,10 @@ import app.repositories.LiabilityRepository;
 public class DataSeeder {
 	
 	//==== AUTOWIRED CONTENT ====//
-	@Autowired
-	Liability liab;
 	
 	@Autowired
 	LiabilityRepository liabRepo;
 	
-	@Autowired
-	LiabEntry liabEntry;
 	
 	@Autowired
 	LiabEntryRepository liabEntryRepo;
@@ -38,31 +34,31 @@ public class DataSeeder {
 	
 	@PostConstruct
 	public void init() throws ParseException {
-		if (liabRepo.count() == 0) {
-			Liability liability = new Liability();
-			
-			liability = makeLiability("Absent", 3);
-			liabRepo.save(liability);
-			
-			liability = makeLiability("Late", 1.5);
-			liabRepo.save(liability);
-			
-			liability = makeLiability("No ID", 1);
-			liabRepo.save(liability);
-			
-		}
-		
-		if (liabEntryRepo.count() == 0) {
-			LiabEntry liabEntry = new LiabEntry();
-			DateFormat df = new SimpleDateFormat("yyyy-dd-mm"); 
-			
-			//PROBLEM WITH DATE ONCE INPUT IN SQL
-			liabEntry = makeLiabEntry((long) 1, "Absent", (long) 1, (java.util.Date) df.parse("2018-11-21"), "Hi");
-			liabEntryRepo.save(liabEntry);
-			
-			liabEntry = makeLiabEntry((long) 1, "Late", (long) 1, (java.util.Date) df.parse("2018-11-21"), "Hello");
-			liabEntryRepo.save(liabEntry);
-		}
+//		if (liabRepo.count() == 0) {
+//			Liability liability = new Liability();
+//			
+//			liability = makeLiability("Absent", 3);
+//			liabRepo.save(liability);
+//			
+//			liability = makeLiability("Late", 1.5);
+//			liabRepo.save(liability);
+//			
+//			liability = makeLiability("No ID", 1);
+//			liabRepo.save(liability);
+//			
+//		}
+//		
+//		if (liabEntryRepo.count() == 0) {
+//			LiabEntry liabEntry = new LiabEntry();
+//			DateFormat df = new SimpleDateFormat("yyyy-dd-mm"); 
+//			
+//			//PROBLEM WITH DATE ONCE INPUT IN SQL
+//			liabEntry = makeLiabEntry((long) 1, "Absent", (long) 1, (java.util.Date) df.parse("2018-11-21"), "Hi");
+//			liabEntryRepo.save(liabEntry);
+//			
+//			liabEntry = makeLiabEntry((long) 1, "Late", (long) 1, (java.util.Date) df.parse("2018-11-21"), "Hello");
+//			liabEntryRepo.save(liabEntry);
+//		}
 		
 	}
 	

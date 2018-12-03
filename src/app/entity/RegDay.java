@@ -1,17 +1,18 @@
 package app.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Entity;
 
 import org.springframework.stereotype.Component;
 
 @Entity
-@Component
 public class RegDay {
 	
 	@Id
@@ -20,23 +21,27 @@ public class RegDay {
 	private Long id;
 	
 	@Column
-	private String type;
+	private Long regId;
 	
 	@Column
-	private String desc;
+	private String dayType;
 	
 	@Column
-	private Date day;
+	private String dayDesc;
 	
 	@Column
-	private int number;
+	@Temporal(TemporalType.DATE)
+	private Date dayDate;
 	
 	@Column
+	private int dayNumber;
+	
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeStart;
 	
-	//or gawing time?
-	
 	@Column
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeEnd;
 
 	public Long getId() {
@@ -47,36 +52,44 @@ public class RegDay {
 		this.id = id;
 	}
 
-	public String getType() {
-		return type;
+	public Long getRegId() {
+		return regId;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setRegId(Long regId) {
+		this.regId = regId;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDayType() {
+		return dayType;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDayType(String dayType) {
+		this.dayType = dayType;
 	}
 
-	public Date getDay() {
-		return day;
+	public String getDayDesc() {
+		return dayDesc;
 	}
 
-	public void setDay(Date day) {
-		this.day = day;
+	public void setDayDesc(String dayDesc) {
+		this.dayDesc = dayDesc;
 	}
 
-	public int getNumber() {
-		return number;
+	public Date getDayDate() {
+		return dayDate;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setDayDate(Date dayDate) {
+		this.dayDate = dayDate;
+	}
+
+	public int getDayNumber() {
+		return dayNumber;
+	}
+
+	public void setDayNumber(int dayNumber) {
+		this.dayNumber = dayNumber;
 	}
 
 	public Date getTimeStart() {
@@ -97,8 +110,8 @@ public class RegDay {
 
 	@Override
 	public String toString() {
-		return "RegDay [id=" + id + ", type=" + type + ", desc=" + desc + ", day=" + day + ", number=" + number
-				+ ", timeStart=" + timeStart + ", timeEnd=" + timeEnd + "]";
+		return "RegDay [id=" + id + ", regId=" + regId + ", dayType=" + dayType + ", dayDesc=" + dayDesc + ", dayDate="
+				+ dayDate + ", dayNumber=" + dayNumber + ", timeStart=" + timeStart + ", timeEnd=" + timeEnd + "]";
 	}
 
 	
