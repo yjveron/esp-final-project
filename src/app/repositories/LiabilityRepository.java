@@ -12,7 +12,7 @@ public interface LiabilityRepository extends JpaRepository<Liability, Long> {
 	
 	//Get the information of that Liability if searching through LiabEntry
 	Liability findById(Long id);
-	Liability findByTitle(String title);
+	Liability findByTitle(String title);	
 	
 	
 }
