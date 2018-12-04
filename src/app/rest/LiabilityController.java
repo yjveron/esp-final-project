@@ -3,9 +3,11 @@ package app.rest;
 import javax.print.attribute.standard.Media;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,9 @@ public class LiabilityController {
 	//[ ] get all liability entries of a liability using liability
 	//[ ] convert liability title to liability id to get list of liability entries
 	//[ ] check liab entry repository
-	//[x] add new liability
+	//[x] create new liability
+	//[x] view liab
+	//[x] edit liab
 	
 	@Autowired
 	LiabilityComponent liabService;
@@ -30,8 +34,17 @@ public class LiabilityController {
 	@Autowired
 	LiabilityRepository liabRepo;
 	
+	@GET
+	@Path("/view")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Liability viewLiab(@QueryParam("t") String title) {
+		Liability l = liabRepo.findByTitle(title);	
+		return l;
+	}
+	
+	
 	@POST //done
-	@Path("/newLiab")
+	@Path("/create")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Liability createLiab(@FormParam("t") String title,
@@ -44,7 +57,7 @@ public class LiabilityController {
 	}
 	
 	@POST //done
-	@Path("/editLiab")
+	@Path("/edit")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String editLiab(@FormParam("ot") String oldTitle,
@@ -64,7 +77,7 @@ public class LiabilityController {
 	
 //method not working
 //	@POST
-//	@Path("/deleteLiab")
+//	@Path("/delete")
 //	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 //	@Produces(MediaType.APPLICATION_JSON)
 //	public String deleteLiab(@FormParam("t") String title) {
