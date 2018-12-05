@@ -11,6 +11,7 @@ import app.entity.Liability;
 public interface LiabilityRepository extends JpaRepository<Liability, Long> {
 	
 	//Get the information of that Liability if searching through LiabEntry
+	//Shouldn't this be list? para print all na lang?
 	Liability findById(Long id);
 	Liability findByTitle(String title);	
 	
