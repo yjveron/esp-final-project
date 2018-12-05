@@ -14,7 +14,21 @@ public class Volunteer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column
-	private Long id;
+	private Long volId;
 	
-	//add others
+	@Column
+	private string volName;
+	
+	@Column
+	private string volCom;
+	
+	@Column
+	private string volSCom;
+	
+	@Column
+	private string volPos;
+	
+	@Column
+	private Long regId;
+	//Foreign key from reg period
 }
