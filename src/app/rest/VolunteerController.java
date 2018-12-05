@@ -1,6 +1,7 @@
 package app.rest;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -26,7 +27,7 @@ public class VolunteerController {
 	@GET
 	@Path("/volunteer")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Volunteer getSeatCount(@QueryParam("name") String name) throws IOException{
+	public List<Volunteer> getSeatCount(@QueryParam("name") String name) throws IOException{
 
 		
 		return volService.getVolunteer(name);

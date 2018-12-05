@@ -1,5 +1,7 @@
 package app.components;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import app.entity.Volunteer;
@@ -10,8 +12,9 @@ public class VolunteerComponent {
 	@Autowired
 	VolunteerRepository repo;
 	
-	public Volunteer getVolunteer(String name) 
-	{
-		//return " dfs ";
+	public List<Volunteer> getVolunteer(String name) 
+	{ 
+		return repo.findByVolName(name);
+
 	}
 }

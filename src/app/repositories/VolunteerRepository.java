@@ -13,6 +13,6 @@ import app.entity.Volunteer;
 public interface VolunteerRepository extends JpaRepository<Volunteer, Long> {
 
 	
-	List<Volunteer> findByVolId(Long VolId);
+	List<Volunteer> findByVolName(String VolName);
 
 }
