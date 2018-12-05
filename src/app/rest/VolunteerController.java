@@ -10,12 +10,15 @@ import javax.ws.rs.QueryParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 
 import app.components.VolunteerComponent;
 import app.entity.Volunteer;
 import app.repositories.LiabilityRepository;
 import app.repositories.VolunteerRepository;
 
+@Component
+@Path("/Volunteer")
 public class VolunteerController {
 
 	@Autowired
@@ -24,16 +27,24 @@ public class VolunteerController {
 	@Autowired
 	VolunteerRepository volRepo;
 	
+	//View list of volunteers
 	@GET
-	@Path("/volunteer")
+	@Path("/student")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Volunteer> getSeatCount(@QueryParam("name") String name) throws IOException{
-
-		
-		return volService.getVolunteer(name);
-		
-		
+	
+		return volService.getVolunteer(name);	
 	}
 	
+	//Create a volunteer entry
+	@GET
+	@Path("/create")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getSeatCount(@QueryParam("name") String name, 
+			@QueryParam("comm") String comm, @QueryParam("subCom") String subCom, 
+			@QueryParam("pos") String pos) throws IOException{
+	
+		return volService.addVolunteer(name, comm, subCom, pos);	
+	}
 	
 }

@@ -27,8 +27,46 @@ public class Volunteer {
 	
 	@Column
 	private String volPos;
+
+	public Long getVolId() {
+		return volId;
+	}
+
+	public void setVolId(Long volId) {
+		this.volId = volId;
+	}
+
+	public String getVolName() {
+		return volName;
+	}
+
+	public void setVolName(String volName) {
+		this.volName = volName;
+	}
+
+	public String getVolCom() {
+		return volCom;
+	}
+
+	public void setVolCom(String volCom) {
+		this.volCom = volCom;
+	}
+
+	public String getVolSCom() {
+		return volSCom;
+	}
+
+	public void setVolSCom(String volSCom) {
+		this.volSCom = volSCom;
+	}
+
+	public String getVolPos() {
+		return volPos;
+	}
+
+	public void setVolPos(String volPos) {
+		this.volPos = volPos;
+	}
 	
-	@Column
-	private Long regId;
-	//Foreign key from registration period
+	
 }
