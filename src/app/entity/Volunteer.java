@@ -17,18 +17,18 @@ public class Volunteer {
 	private Long volId;
 	
 	@Column
-	private string volName;
+	private String volName;
 	
 	@Column
-	private string volCom;
+	private String volCom;
 	
 	@Column
-	private string volSCom;
+	private String volSCom;
 	
 	@Column
-	private string volPos;
+	private String volPos;
 	
 	@Column
 	private Long regId;
-	//Foreign key from reg period
+	//Foreign key from registration period
 }
