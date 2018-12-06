@@ -30,7 +30,7 @@ public class VolunteerComponent {
 	{ 
 		
 		Volunteer x = repo.findByVolName(name);
-		
+		repo.delete(x);
 		return "You have Deleted " + name + ". Thanks";
 	}
 
