@@ -12,7 +12,7 @@ public class VolunteerComponent {
 	@Autowired
 	VolunteerRepository repo;
 	
-	public List<Volunteer> getVolunteer(String name) 
+	public Volunteer getVolunteer(String name) 
 	{ 
 		return repo.findByVolName(name);
 
@@ -24,6 +24,14 @@ public class VolunteerComponent {
 		repo.save(t);
 		
 		return "You have Created a new Volunteer. Thanks";
+	}
+	
+	public String delVolunteer(String name) 
+	{ 
+		
+		Volunteer x = repo.findByVolName(name);
+		
+		return "You have Deleted " + name + ". Thanks";
 	}
 
 	private Volunteer makeVolunteer(String volName, String volComm, String volSCom, String volPos) {

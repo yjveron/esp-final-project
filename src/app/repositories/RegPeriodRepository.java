@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import app.entity.RegPeriod;
 
 @Repository
-public interface RegPeriodRepository extends JpaRepository<RegPeriod, Long> {
+public interface RegPeriodRepository extends JpaRepository<RegPeriod, Long> 
+{
 
 }

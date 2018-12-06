@@ -31,7 +31,7 @@ public class VolunteerController {
 	@GET
 	@Path("/student")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Volunteer> getSeatCount(@QueryParam("name") String name) throws IOException{
+	public Volunteer printVolunteer(@QueryParam("name") String name) throws IOException{
 	
 		return volService.getVolunteer(name);	
 	}
@@ -40,11 +40,19 @@ public class VolunteerController {
 	@GET
 	@Path("/create")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getSeatCount(@QueryParam("name") String name, 
+	public String createVolunteerEntry(@QueryParam("name") String name, 
 			@QueryParam("comm") String comm, @QueryParam("subCom") String subCom, 
 			@QueryParam("pos") String pos) throws IOException{
 	
 		return volService.addVolunteer(name, comm, subCom, pos);	
 	}
 	
+	//Delete a volunteer entry
+	@GET
+	@Path("/delete")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String delVolunteerEntry(@QueryParam("name") String name) throws IOException{
+	
+		return volService.delVolunteer(name);	
+	}
 }
