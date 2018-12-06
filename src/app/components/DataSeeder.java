@@ -73,7 +73,7 @@ public class DataSeeder {
 		return l;
 	}
 	
-	private LiabEntry makeLiabEntry(Long volId, String liabTitle, Long dayId, java.util.Date lienDate, String lienDesc) {
+/*	private LiabEntry makeLiabEntry(Long volId, String liabTitle, Long dayId, java.util.Date lienDate, String lienDesc) {
 		LiabEntry le = new LiabEntry();
 		
 		Long liabId = liabRepo.findByTitle(liabTitle).getId();
@@ -85,5 +85,5 @@ public class DataSeeder {
 		le.setVolId(volId);
 		
 		return le;		
-	}
+	}*/
 }

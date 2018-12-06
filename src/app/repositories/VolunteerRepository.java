@@ -12,4 +12,5 @@ public interface VolunteerRepository extends JpaRepository<Volunteer, Long> {
 	
 	Volunteer findByVolName(String VolName);
 	
+	
 }

@@ -37,7 +37,7 @@ public class RegDayController {
 							   @FormParam("number") int dayNumber,
 							   @FormParam("start") Date timeStart,
 							   @FormParam("end") Date timeEnd) {
-		
+		//Put to component
 		RegDay r = new RegDay();
 		r.setRegId(regId);
 		r.setDayType(dayType);

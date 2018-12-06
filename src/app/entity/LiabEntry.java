@@ -26,16 +26,6 @@ public class LiabEntry {
 	@Column
 	private Long liabId;
 	
-	@Column
-	private Long dayId;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column
-	private Date lienDate;
-	
-	@Column
-	private String lienDesc;
-
 	public Long getId() {
 		return id;
 	}
@@ -60,34 +50,9 @@ public class LiabEntry {
 		this.liabId = liabId;
 	}
 
-	public Long getDayId() {
-		return dayId;
-	}
-
-	public void setDayId(Long dayId) {
-		this.dayId = dayId;
-	}
-
-	public java.util.Date getLienDate() {
-		return lienDate;
-	}
-
-	public void setLienDate(java.util.Date lienDate) {
-		this.lienDate = lienDate;
-	}
-
-	public String getLienDesc() {
-		return lienDesc;
-	}
-
-	public void setLienDesc(String lienDesc) {
-		this.lienDesc = lienDesc;
-	}
-
 	@Override
 	public String toString() {
-		return "LiabEntry [id=" + id + ", volId=" + volId + ", liabId=" + liabId + ", dayId=" + dayId + ", lienDate="
-				+ lienDate + ", lienDesc=" + lienDesc + "]";
+		return "LiabEntry [id=" + id + ", volId=" + volId + ", liabId=" + liabId + "]";
 	}
 
 }

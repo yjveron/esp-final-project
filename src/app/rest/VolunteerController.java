@@ -77,4 +77,7 @@ public class VolunteerController {
 	
 		return volService.delVolunteer(name);	
 	}
+	
+	//Print Liability points of volunteer "Link only in 
+	//volunteer component" but link to repositories of entry/ liab / and volunteer
 }

@@ -14,5 +14,7 @@ public interface LiabEntryRepository extends JpaRepository<LiabEntry, Long>{
 	List<LiabEntry> findByLiabId(Long liabId);
 	
 	List<LiabEntry> findByVolId(Long volId);
+	LiabEntry findById(Long id);
+
 
 }
