@@ -4,13 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import app.entity.LiabEntry;
 import app.entity.Volunteer;
+import app.repositories.LiabEntryRepository;
 import app.repositories.VolunteerRepository;
 
 public class VolunteerComponent {
 
 	@Autowired
 	VolunteerRepository repo;
+	
+	@Autowired
+	LiabEntryRepository lerepo;
 	
 	//View All Volunteers function
 	public List<Volunteer> getVolunteer() 
@@ -19,6 +24,7 @@ public class VolunteerComponent {
 
 	}
 	
+	//view Specific Volunteer function
 	public Volunteer getSpecVolunteer(String name) 
 	{ 
 		return repo.findByVolName(name);
@@ -52,7 +58,6 @@ public class VolunteerComponent {
 		return "You have Deleted " + name + ". Thanks";
 	}
 
-	
 	//Internal add function
 	private Volunteer makeVolunteer(String volName, String volComm, String volSCom, String volPos) {
 		Volunteer v = new Volunteer();
