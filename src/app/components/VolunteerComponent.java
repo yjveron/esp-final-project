@@ -12,12 +12,20 @@ public class VolunteerComponent {
 	@Autowired
 	VolunteerRepository repo;
 	
-	public Volunteer getVolunteer(String name) 
+	//View All Volunteers function
+	public List<Volunteer> getVolunteer() 
+	{ 
+		return repo.findAll();
+
+	}
+	
+	public Volunteer getSpecVolunteer(String name) 
 	{ 
 		return repo.findByVolName(name);
 
 	}
 	
+	//Add function
 	public String addVolunteer(String name, String comm, String subCom, String pos) 
 	{ 
 		Volunteer t = makeVolunteer(name, comm, subCom, pos);
@@ -26,6 +34,16 @@ public class VolunteerComponent {
 		return "You have Created a new Volunteer. Thanks";
 	}
 	
+	//Edit function
+	public String editVolunteer(String name, String comm, String subCom, String pos) 
+	{ 
+		Volunteer t = updateVolunteer(name, comm, subCom, pos);
+		repo.save(t);
+		
+		return "You have updated " + name + "'s information Thanks";
+	}
+	
+	//Delete function
 	public String delVolunteer(String name) 
 	{ 
 		
@@ -34,6 +52,8 @@ public class VolunteerComponent {
 		return "You have Deleted " + name + ". Thanks";
 	}
 
+	
+	//Internal add function
 	private Volunteer makeVolunteer(String volName, String volComm, String volSCom, String volPos) {
 		Volunteer v = new Volunteer();
 		v.setVolName(volName);
@@ -42,5 +62,14 @@ public class VolunteerComponent {
 		v.setVolPos(volPos);
 		
 		return v;
+	}
+	
+	//Internal Edit Function
+	private Volunteer updateVolunteer(String volName, String volComm, String volSCom, String volPos) {
+		Volunteer v = repo.findByVolName(volName);
+		v.setVolCom(volComm);
+		v.setVolSCom(volSCom);
+		v.setVolPos(volPos);
+		return repo.save(v);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
@@ -27,13 +28,23 @@ public class VolunteerController {
 	@Autowired
 	VolunteerRepository volRepo;
 	
-	//View list of volunteers
-	@GET
-	@Path("/student")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Volunteer printVolunteer(@QueryParam("name") String name) throws IOException{
 	
-		return volService.getVolunteer(name);	
+	//View All Volunteers
+	@GET
+	@Path("/students")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Volunteer> printAllVolunteer() throws IOException{
+	
+		return volService.getVolunteer();	
+	}
+	
+	//View Specific Volunteer
+	@GET
+	@Path("/{student}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Volunteer printVolunteer(@PathParam("student") String name) throws IOException{
+	
+		return volService.getSpecVolunteer(name);	
 	}
 	
 	//Create a volunteer entry
@@ -45,6 +56,17 @@ public class VolunteerController {
 			@QueryParam("pos") String pos) throws IOException{
 	
 		return volService.addVolunteer(name, comm, subCom, pos);	
+	}
+	
+	//Update a volunteer entry
+	@GET
+	@Path("/edit")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String delVolunteerEntry(@QueryParam("name") String name, 
+			@QueryParam("comm") String comm, @QueryParam("subCom") String subCom, 
+			@QueryParam("pos") String pos) throws IOException{
+	
+		return volService.editVolunteer(name, comm, subCom, pos);	
 	}
 	
 	//Delete a volunteer entry
