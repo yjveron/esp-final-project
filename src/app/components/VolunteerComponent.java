@@ -28,7 +28,6 @@ public class VolunteerComponent {
 	public Volunteer getSpecVolunteer(String name) 
 	{ 
 		return repo.findByVolName(name);
-
 	}
 	
 	//Add function

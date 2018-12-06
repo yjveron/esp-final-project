@@ -1,6 +1,7 @@
 package app.rest;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import app.components.LiabEntryComponent;
 import app.components.VolunteerComponent;
+import app.entity.LiabEntry;
 import app.entity.Volunteer;
 import app.repositories.LiabEntryRepository;
 import app.repositories.VolunteerRepository;
@@ -30,7 +32,7 @@ public class LiabEntryController {
 	@GET
 	@Path("/{student}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Volunteer printVolunteer(@PathParam("student") String name) throws IOException{
+	public List<LiabEntry> printVolunteer(@PathParam("student") String name) throws IOException{
 	
 		return Service.getVolunteerLiabs(name);	
 	}
