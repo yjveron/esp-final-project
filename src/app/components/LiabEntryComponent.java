@@ -25,6 +25,14 @@ public class LiabEntryComponent {
 		return repo.findByVolId(t.getVolId());
 
 	}
+	
+	public Int getVolunteerpoints(String name) 
+	{ 
+		Volunteer t = volRepo.findByVolName(name);
+		
+		return repo.findByVolId(t.getVolId());
+
+	}
 	//View All entries
 	public List<LiabEntry> getVolunteer() 
 	{ 
