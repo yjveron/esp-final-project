@@ -25,6 +25,12 @@ public class LiabEntryComponent {
 		return repo.findByVolId(t.getVolId());
 
 	}
+	//View All entries
+	public List<LiabEntry> getVolunteer() 
+	{ 
+		return repo.findAll();
+
+	}
 	
 	//Add function
 	public String addEntry(String name, String title) 
@@ -50,5 +56,12 @@ public class LiabEntryComponent {
 		v.setLiabId(y.getId());
 		return repo.save(v);
 		
+	}
+
+	//Delete
+	public String delEntry(Long entryId) {
+		LiabEntry x = repo.findById(entryId);
+		repo.delete(x);
+		return "You have deleted entry #" + entryId + " Thank you";
 	}
 }
