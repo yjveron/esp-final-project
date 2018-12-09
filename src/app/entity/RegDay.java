@@ -21,7 +21,7 @@ public class RegDay {
 	private Long id;
 	
 	@Column
-	private Long regId;
+	private Long regPeriodId;
 	
 	@Column
 	private String dayType;
@@ -30,18 +30,14 @@ public class RegDay {
 	private String dayDesc;
 	
 	@Column
-	@Temporal(TemporalType.DATE)
-	private Date dayDate;
-	
-	@Column
 	private int dayNumber;
 	
 	@Column
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIME)
 	private Date timeStart;
 	
 	@Column
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIME)
 	private Date timeEnd;
 
 	public Long getId() {
@@ -53,11 +49,11 @@ public class RegDay {
 	}
 
 	public Long getRegId() {
-		return regId;
+		return regPeriodId;
 	}
 
 	public void setRegId(Long regId) {
-		this.regId = regId;
+		this.regPeriodId = regId;
 	}
 
 	public String getDayType() {
@@ -74,14 +70,6 @@ public class RegDay {
 
 	public void setDayDesc(String dayDesc) {
 		this.dayDesc = dayDesc;
-	}
-
-	public Date getDayDate() {
-		return dayDate;
-	}
-
-	public void setDayDate(Date dayDate) {
-		this.dayDate = dayDate;
 	}
 
 	public int getDayNumber() {
@@ -110,10 +98,9 @@ public class RegDay {
 
 	@Override
 	public String toString() {
-		return "RegDay [id=" + id + ", regId=" + regId + ", dayType=" + dayType + ", dayDesc=" + dayDesc + ", dayDate="
-				+ dayDate + ", dayNumber=" + dayNumber + ", timeStart=" + timeStart + ", timeEnd=" + timeEnd + "]";
+		return "RegDay [id=" + id + ", regId=" + regPeriodId + ", dayType=" + dayType + ", dayDesc=" + dayDesc
+				+ ", dayNumber=" + dayNumber + ", timeStart=" + timeStart + ", timeEnd=" + timeEnd + "]";
 	}
-
 	
 	
 }

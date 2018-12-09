@@ -3,12 +3,14 @@ package app.components;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import app.entity.LiabEntry;
 import app.entity.Volunteer;
 import app.repositories.LiabEntryRepository;
 import app.repositories.VolunteerRepository;
 
+@Component
 public class VolunteerComponent {
 
 	@Autowired

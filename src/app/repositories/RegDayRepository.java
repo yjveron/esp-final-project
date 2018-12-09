@@ -11,4 +11,5 @@ import app.entity.RegDay;
 public interface RegDayRepository extends JpaRepository<RegDay, Long>{
 
 	List<RegDay> findByDayType(String DayType);
+	List<RegDay> findByRegPeriodId(Long id);
 }

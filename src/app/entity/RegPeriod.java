@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.stereotype.Component;
 
@@ -16,23 +18,25 @@ public class RegPeriod {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column
-	private Long RegId;
+	private Long id;
 
 	@Column
 	private String regTitle;
 	
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date startDate;
 	
 	@Column 
+	@Temporal(TemporalType.DATE)
 	private Date endDate;
 
-	public Long getRegId() {
-		return RegId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setRegId(Long regId) {
-		RegId = regId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getRegTitle() {
@@ -58,7 +62,13 @@ public class RegPeriod {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
+	@Override
+	public String toString() {
+		return "RegPeriod [id=" + id + ", regTitle=" + regTitle + ", startDate=" + startDate + ", endDate=" + endDate
+				+ "]";
+	}
+
 	
 	
-	//add others
 }
