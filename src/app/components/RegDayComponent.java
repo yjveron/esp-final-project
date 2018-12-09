@@ -28,6 +28,7 @@ public class RegDayComponent {
 		r.setDayNumber(dayNumber);
 		r.setTimeStart(timeStart);
 		r.setTimeEnd(timeEnd);
+		regDayRepo.save(r);
 		
 		//https://www.logicbig.com/tutorials/java-ee-tutorial/jpa/temporal-annotation.html
 		
@@ -37,4 +38,6 @@ public class RegDayComponent {
 //	public RegDay editRegDay(Long regId, String dayType, String dayDesc, int dayNumber, Date timeStart, Date timeEnd) {
 //		RegDay r =
 //	}
+	
+	//KULANG NALANG EDIT, DELETE, AND GET WHICH PERIOD IT IS PART OF (idk the input for getting period)
 }
