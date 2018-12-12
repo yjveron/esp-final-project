@@ -26,12 +26,18 @@ public class LiabEntryComponent {
 
 	}
 	
-	public List<LiabEntry> getVolunteerpoints(String name) 
+	
+	//View total liability points
+	public String getVolunteerpoints(String name) 
 	{ 
 		Volunteer t = volRepo.findByVolName(name);
-		
-		//Sum all 
-		return repo.findByVolId(t.getVolId());
+		List<LiabEntry> f = repo.findByVolId(t.getVolId());
+		double k = 0;
+		for (LiabEntry var : f) 
+		{ 
+			k = k + liabRepo.findById(var.getLiabId()).getPoints();
+		}		
+		return name + " has " + k + " number of liability points.";
 
 	}
 	//View All entries

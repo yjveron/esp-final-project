@@ -47,6 +47,14 @@ public class LiabEntryController {
 		return Service.getAllEntries();	
 	}
 	
+	//View sum of liabilities
+	@GET
+	@Path("/view")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String printSum(@PathParam("student") String name) throws IOException{
+	
+		return Service.getVolunteerpoints(name);	
+	}
 	//create a liability entry 
 	@GET
 	@Path("/create")
