@@ -1,16 +1,21 @@
 package app.components;
 
 import java.util.Date;
+import java.util.List;
+
+import javax.ws.rs.FormParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import app.entity.LiabEntry;
 import app.entity.RegDay;
 import app.repositories.RegDayRepository;
 import app.repositories.RegPeriodRepository;
 
 @Component
-public class RegDayComponent {
+public class RegDayComponent 
+{
 	// Get which reg period it's a part off
 	
 	@Autowired
@@ -19,7 +24,9 @@ public class RegDayComponent {
 	@Autowired
 	RegPeriodRepository regPeriodRepo;
 	
-	public RegDay createRegDay(String regTitle, String dayType, String dayDesc, int dayNumber, Date timeStart, Date timeEnd) {
+	//Create
+	public RegDay createRegDay(String regTitle, String dayType, String dayDesc, int dayNumber, Date timeStart, Date timeEnd) 
+	{
 		//Put to component
 		RegDay r = new RegDay();
 		r.setRegId(regPeriodRepo.findByRegTitle(regTitle).getId());
@@ -35,9 +42,29 @@ public class RegDayComponent {
 		return r;
 	}
 	
-//	public RegDay editRegDay(Long regId, String dayType, String dayDesc, int dayNumber, Date timeStart, Date timeEnd) {
-//		RegDay r =
-//	}
+	//View all reg days
+	public List<RegDay> getAll() 
+	{
+
+		return regDayRepo.findAll();
+	}
+
+	public String editRegDay(Long id, String dayType, String dayDesc, int dayNumber, Date timeStart, Date timeEnd) 
+	{
+		RegDay r = regDayRepo.findBySpecRegDay(id);
+		r.setDayType(dayType);
+		r.setDayDesc(dayDesc);
+		r.setDayNumber(dayNumber);
+		r.setTimeStart(timeStart);
+		r.setTimeEnd(timeEnd);
+		return "You have edited the regday. Thank you";
+	}
 	
+	//Delete
+	public String delEntry(Long id) {
+		RegDay x = regDayRepo.findBySpecRegDay(id);
+		regDayRepo.delete(x);
+		return "You have deleted " + id + " Thank you";
+	}
 	//KULANG NALANG EDIT, DELETE, AND GET WHICH PERIOD IT IS PART OF (idk the input for getting period)
 }

@@ -22,6 +22,7 @@ public class LiabilityComponent {
 	@Autowired
 	VolunteerRepository volRepo;
 	
+	//Create
 	public Liability createLiab(String title, double points) {
 		Liability l = new Liability();
 		l.setTitle(title);
@@ -30,6 +31,7 @@ public class LiabilityComponent {
 		return l;
 	}
 	
+	//Update
 	public String changeLiab(String oldTitle, String newTitle, double newPoints) {
 		Liability l = liabRepo.findByTitle(oldTitle);
 		String oldT = l.getTitle();
@@ -42,6 +44,7 @@ public class LiabilityComponent {
 		return "Old Title: " + oldT + " | " + "New Title: " + l.getTitle() + " | " + "Old Points: " + oldP + " | " + "New Points: " + l.getPoints();
 	}
 	
+	//Delete
 	public String eraseLiab(String title) {
 		Liability l = liabRepo.findByTitle(title);
 		liabRepo.delete(l);

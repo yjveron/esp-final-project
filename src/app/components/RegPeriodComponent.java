@@ -21,6 +21,7 @@ public class RegPeriodComponent {
 	@Autowired
 	RegDayRepository regDayRepo;
 	
+	//Create
 	public RegPeriod createRegPeriod(String regTitle, Date startDate, Date endDate) {
 		RegPeriod rp = new RegPeriod();
 		rp.setRegTitle(regTitle);
@@ -30,7 +31,7 @@ public class RegPeriodComponent {
 	
 		return rp;
 	}
-	
+	//Edit title
 	public String changeRegPeriodTitle(String oldRegTitle, String newRegTitle) {
 		RegPeriod rp = regPeriodRepo.findByRegTitle(oldRegTitle);
 		rp.setRegTitle(newRegTitle);
@@ -39,6 +40,7 @@ public class RegPeriodComponent {
 		return "Changed title from " + oldRegTitle + " to " + newRegTitle;
 	}
 	
+	//edit date
 	public String changeRegPeriodDate(String regTitle, Date newStartDate, Date newEndDate) {
 		RegPeriod rp = regPeriodRepo.findByRegTitle(regTitle);
 		Date oldStartDate = rp.getStartDate();
@@ -50,6 +52,8 @@ public class RegPeriodComponent {
 		return "Changed " + regTitle + "'s " + " date period. " + "| Old Period: " + oldStartDate.toString() + " - " + oldEndDate.toString() + " | New Period: " + rp.getStartDate() + " - " + rp.getEndDate();
 	}
 	
+	
+	//Delete
 	public String deleteRegPeriod(String regTitle) {
 		RegPeriod rp = regPeriodRepo.findByRegTitle(regTitle);
 		regPeriodRepo.delete(rp);
@@ -57,6 +61,7 @@ public class RegPeriodComponent {
 		return "Deleted Reg Period: " + regTitle;
 	}
 	
+	//View All Reg Periods
 	public List<RegPeriod> viewAllRegPeriod() {
 		return regPeriodRepo.findAll();
 	}
@@ -65,6 +70,7 @@ public class RegPeriodComponent {
 		return regPeriodRepo.findByRegTitle(title);
 	}
 	
+	//View all Reg Days
 	public List<RegDay> viewAllRegDaysUnderRegPeriod(String title){
 		return regDayRepo.findByRegPeriodId(regPeriodRepo.findByRegTitle(title).getId());
 	}
