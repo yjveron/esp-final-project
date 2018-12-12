@@ -30,6 +30,7 @@ public class LiabEntryComponent {
 	{ 
 		Volunteer t = volRepo.findByVolName(name);
 		
+		//Sum all 
 		return repo.findByVolId(t.getVolId());
 
 	}
