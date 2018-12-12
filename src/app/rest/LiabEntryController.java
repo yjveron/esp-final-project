@@ -49,7 +49,7 @@ public class LiabEntryController {
 	
 	//View sum of liabilities
 	@GET
-	@Path("/view")
+	@Path("/sum")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String printSum(@PathParam("student") String name) throws IOException{
 	

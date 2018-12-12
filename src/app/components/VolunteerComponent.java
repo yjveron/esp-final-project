@@ -35,10 +35,15 @@ public class VolunteerComponent {
 	//Add function
 	public String addVolunteer(String name, String comm, String subCom, String pos) 
 	{ 
-		Volunteer t = makeVolunteer(name, comm, subCom, pos);
-		repo.save(t);
-		
-		return "You have Created a new Volunteer. Thanks";
+		if (name == repo.findByVolName(name).getVolName()) {
+			return "That volunteer exists";
+		}
+		else {
+			Volunteer t = makeVolunteer(name, comm, subCom, pos);
+			repo.save(t);
+			
+			return "You have Created a new Volunteer. Thanks";
+		}
 	}
 	
 	//Edit function

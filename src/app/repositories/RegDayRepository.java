@@ -13,8 +13,8 @@ public interface RegDayRepository extends JpaRepository<RegDay, Long>{
 
 	List<RegDay> findByDayType(String DayType);
 	List<RegDay> findByRegPeriodId(Long id);
-	RegDay findByRegTitle(String regTitle);
-	@Query("select u from RegDay u where u.id = ?1")
-	RegDay findBySpecRegDay(Long id);
+//	@Query("select u from RegDay u where u.id = ?1")
+//	RegDay findBySpecRegDay(Long id);
+	RegDay findById(Long id);
 
 }

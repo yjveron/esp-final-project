@@ -33,11 +33,11 @@ public class RegDay {
 	private int dayNumber;
 	
 	@Column
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeStart;
 	
 	@Column
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date timeEnd;
 
 	public Long getId() {

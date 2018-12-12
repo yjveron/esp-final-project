@@ -1,5 +1,6 @@
 package app.components;
 
+import java.text.FieldPosition;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class RegDayComponent
 	//Create
 	public RegDay createRegDay(String regTitle, String dayType, String dayDesc, int dayNumber, Date timeStart, Date timeEnd) 
 	{
+		//if ((regTitle == regPeriodRepo.findByRegTitle(regTitle).getRegTitle()) && (dayNumber == regDayRepo))
 		//Put to component
 		RegDay r = new RegDay();
 		r.setRegId(regPeriodRepo.findByRegTitle(regTitle).getId());
@@ -53,7 +55,7 @@ public class RegDayComponent
 	//Edit
 	public String editRegDay(Long id, String dayType, String dayDesc, int dayNumber, Date timeStart, Date timeEnd) 
 	{
-		RegDay r = regDayRepo.findBySpecRegDay(id);
+		RegDay r = regDayRepo.findById(id);
 		r.setDayType(dayType);
 		r.setDayDesc(dayDesc);
 		r.setDayNumber(dayNumber);
@@ -64,12 +66,12 @@ public class RegDayComponent
 	
 	//Delete
 	public String delEntry(Long id) {
-		RegDay x = regDayRepo.findBySpecRegDay(id);
+		RegDay x = regDayRepo.findById(id);
 		regDayRepo.delete(x);
 		return "You have deleted " + id + " Thank you";
 	}
 
 	public RegDay viewSpecEntry(Long entryId) {
-		return regDayRepo.findBySpecRegDay(entryId);
+		return regDayRepo.findById(entryId);
 	}
 }
