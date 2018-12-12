@@ -8,9 +8,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
 import app.components.LiabEntryComponent;
@@ -35,17 +35,16 @@ public class LiabEntryController {
 	@Path("/{student}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<LiabEntry> printVolunteer(@PathParam("student") String name) throws IOException{
-	
 		return Service.getVolunteerLiabs(name);	
 	}
 	
 	//View all liabilities entered
 	@GET
-	@Path("/{student}")
+	@Path("/view")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<LiabEntry> printAllEntries() throws IOException{
 	
-		return Service.getVolunteer();	
+		return Service.getAllEntries();	
 	}
 	
 	//create a liability entry 

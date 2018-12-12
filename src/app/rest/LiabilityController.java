@@ -49,11 +49,7 @@ public class LiabilityController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Liability createLiab(@FormParam("t") String title,
 								@FormParam("p") double points) {
-		Liability l = new Liability();
-		l.setTitle(title);
-		l.setPoints(points);
-		liabRepo.save(l);
-		return l;
+		return liabService.createLiab(title, points);
 	}
 	
 	@POST //done
@@ -63,35 +59,17 @@ public class LiabilityController {
 	public String editLiab(@FormParam("ot") String oldTitle,
 							  @FormParam("nt") String newTitle,
 							  @FormParam("np") double newPoints) {
+
+		return liabService.changeLiab(oldTitle, newTitle, newPoints);
 		
-		Liability l = liabRepo.findByTitle(oldTitle);
-		String oldT = l.getTitle();
-		double oldP = l.getPoints();
-		
-		l.setTitle(newTitle);
-		l.setPoints(newPoints);
-		liabRepo.save(l);
-		
-		return "Old Title: " + oldT + " | " + "New Title: " + l.getTitle() + " | " + "Old Points: " + oldP + " | " + "New Points: " + l.getPoints();
 	}
 	
-//method not working
-//	@POST
-//	@Path("/delete")
-//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public String deleteLiab(@FormParam("t") String title) {
-//		Liability l = liabRepo.findByTitle(title);
-//		String returnTitle = l.getTitle();
-//		liabRepo.delete(l);
-//		
-//		if (liabRepo.findByTitle(title) == null) {
-//			return returnTitle + " successfully deleted.";
-//		}
-//		
-//		else {
-//			return "Unable to delete " + returnTitle;
-//		}
-//		
-//	}
+	@POST
+	@Path("/delete")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String deleteLiab(@FormParam("t") String title) {
+
+		return liabService.eraseLiab(title);
+	}
 }

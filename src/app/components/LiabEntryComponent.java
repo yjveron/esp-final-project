@@ -26,7 +26,7 @@ public class LiabEntryComponent {
 
 	}
 	
-	public Int getVolunteerpoints(String name) 
+	public List<LiabEntry> getVolunteerpoints(String name) 
 	{ 
 		Volunteer t = volRepo.findByVolName(name);
 		
@@ -35,7 +35,7 @@ public class LiabEntryComponent {
 
 	}
 	//View All entries
-	public List<LiabEntry> getVolunteer() 
+	public List<LiabEntry> getAllEntries() 
 	{ 
 		return repo.findAll();
 

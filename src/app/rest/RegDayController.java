@@ -17,7 +17,7 @@ import app.entity.RegDay;
 import app.repositories.RegDayRepository;
 
 @Component
-@Path("/regday")
+@Path("/RegDay")
 public class RegDayController {
 	
 	@Autowired
@@ -30,26 +30,15 @@ public class RegDayController {
 	@Path("/create")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public RegDay createRegDay(@FormParam("regId") Long regId,
+	public RegDay createRegDay(@FormParam("regTitle") String regTitle,
 							   @FormParam("type") String dayType,
 							   @FormParam("desc") String dayDesc,
-							   @FormParam("date") Date dayDate,
 							   @FormParam("number") int dayNumber,
 							   @FormParam("start") Date timeStart,
 							   @FormParam("end") Date timeEnd) {
-		//Put to component
-		RegDay r = new RegDay();
-		r.setRegId(regId);
-		r.setDayType(dayType);
-		r.setDayDesc(dayDesc);
-		r.setDayDate(dayDate);
-		r.setDayNumber(dayNumber);
-		r.setTimeStart(timeStart);
-		r.setTimeEnd(timeEnd);
-	
-		//https://www.logicbig.com/tutorials/java-ee-tutorial/jpa/temporal-annotation.html
 		
-		return r;
+		return regDayService.createRegDay(regTitle, dayType, dayDesc, dayNumber, timeStart, timeEnd);
 		
 	}
+	
 }
