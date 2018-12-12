@@ -49,6 +49,8 @@ public class RegDayComponent
 		return regDayRepo.findAll();
 	}
 
+	
+	//Edit
 	public String editRegDay(Long id, String dayType, String dayDesc, int dayNumber, Date timeStart, Date timeEnd) 
 	{
 		RegDay r = regDayRepo.findBySpecRegDay(id);
@@ -66,5 +68,8 @@ public class RegDayComponent
 		regDayRepo.delete(x);
 		return "You have deleted " + id + " Thank you";
 	}
-	//KULANG NALANG EDIT, DELETE, AND GET WHICH PERIOD IT IS PART OF (idk the input for getting period)
+
+	public RegDay viewSpecEntry(Long entryId) {
+		return regDayRepo.findBySpecRegDay(entryId);
+	}
 }

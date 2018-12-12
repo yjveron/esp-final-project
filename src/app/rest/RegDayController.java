@@ -83,4 +83,12 @@ public class RegDayController {
 		return regDayService.delEntry(entryId);	
 	}
 	
+	//View Specific Day
+	@GET
+	@Path("/delete")
+	@Produces(MediaType.APPLICATION_JSON)
+	public RegDay viewEntry(@QueryParam("entryId") Long entryId) throws IOException{
+	
+		return regDayService.viewSpecEntry(entryId);	
+	}
 }
