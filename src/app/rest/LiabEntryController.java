@@ -3,6 +3,7 @@ package app.rest;
 import java.io.IOException;
 import java.util.List;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -51,7 +52,7 @@ public class LiabEntryController {
 	@GET
 	@Path("/sum")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String printSum(@PathParam("student") String name) throws IOException{
+	public String printSum(@QueryParam("student") String name) throws IOException{
 	
 		return Service.getVolunteerpoints(name);	
 	}

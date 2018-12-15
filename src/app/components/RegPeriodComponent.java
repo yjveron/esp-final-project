@@ -23,9 +23,6 @@ public class RegPeriodComponent {
 	
 	//Create
 	public RegPeriod createRegPeriod(String regTitle, Date startDate, Date endDate) {
-		if (regTitle == regPeriodRepo.findByRegTitle(regTitle).getRegTitle()){
-			return null;
-		}
 		RegPeriod rp = new RegPeriod();
 		rp.setRegTitle(regTitle);
 		rp.setStartDate(startDate);
