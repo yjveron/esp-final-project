@@ -67,6 +67,16 @@ public class Volunteer {
 	public void setVolPos(String volPos) {
 		this.volPos = volPos;
 	}
+
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void save(Volunteer k) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
