@@ -3,8 +3,10 @@ package app.rest;
 import java.io.IOException;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -57,31 +59,34 @@ public class LiabEntryController {
 		return Service.getVolunteerpoints(name);	
 	}
 	//create a liability entry 
-	@GET
+	@POST
 	@Path("/create")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String createVolunteerEntry(@QueryParam("name") String name, 
-			@QueryParam("liability") String liability) throws IOException{
+	public String createVolunteerEntry(@FormParam("name") String name, 
+			@FormParam("liability") String liability) throws IOException{
 	
 		return Service.addEntry(name, liability);	
 	}
 	
 	//Edit liability entry
-	@GET
+	@POST
 	@Path("/edit")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public LiabEntry createVolunteerEntry(@QueryParam("name") String name, 
-			@QueryParam("liability") String liability, 
-			@QueryParam("entryId") Long entryId) throws IOException{
+	public LiabEntry createVolunteerEntry(@FormParam("name") String name, 
+			@FormParam("liability") String liability, 
+			@FormParam("entryId") Long entryId) throws IOException{
 	
 		return Service.editEntry(name, entryId, liability);	
 	}
 	
 	//Delete a volunteer entry
-	@GET
+	@POST
 	@Path("/delete")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String delVolunteerEntry(@QueryParam("entryId") Long entryId) throws IOException{
+	public String delVolunteerEntry(@FormParam("entryId") Long entryId) throws IOException{
 	
 		return Service.delEntry(entryId);	
 	}

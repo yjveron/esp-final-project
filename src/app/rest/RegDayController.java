@@ -59,15 +59,16 @@ public class RegDayController {
 	
 	
 	//Edit regday
-	@GET
+	@POST
 	@Path("/edit")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String editEntry(@QueryParam("id") Long id,
-			   @QueryParam("type") String dayType,
-			   @QueryParam("desc") String dayDesc,
-			   @QueryParam("number") int dayNumber,
-			   @QueryParam("start") Date timeStart,
-			   @QueryParam("end") Date timeEnd) throws IOException{
+	public String editEntry(@FormParam("id") Long id,
+			@FormParam("type") String dayType,
+			@FormParam("desc") String dayDesc,
+			@FormParam("number") int dayNumber,
+			@FormParam("start") Date timeStart,
+			@FormParam("end") Date timeEnd) throws IOException{
 	
 		return regDayService.editRegDay(id, dayType, 
 				dayDesc, dayNumber, 
@@ -75,10 +76,11 @@ public class RegDayController {
 	}
 	
 	//Delete Entry
-	@GET
+	@POST
 	@Path("/delete")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String delVolunteerEntry(@QueryParam("entryId") Long entryId) throws IOException{
+	public String delVolunteerEntry(@FormParam("entryId") Long entryId) throws IOException{
 	
 		return regDayService.delEntry(entryId);	
 	}

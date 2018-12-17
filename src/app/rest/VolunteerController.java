@@ -3,7 +3,10 @@ package app.rest;
 import java.io.IOException;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -48,32 +51,35 @@ public class VolunteerController {
 	}
 	
 	//Create a volunteer entry
-	@GET
+	@POST
 	@Path("/create")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String createVolunteerEntry(@QueryParam("name") String name, 
-			@QueryParam("comm") String comm, @QueryParam("subCom") String subCom, 
-			@QueryParam("pos") String pos) throws IOException{
+	public String createVolunteerEntry(@FormParam("name") String name, 
+			@FormParam("comm") String comm, @FormParam("subCom") String subCom, 
+			@FormParam("pos") String pos) throws IOException{
 	
 		return volService.addVolunteer(name, comm, subCom, pos);	
 	}
 	
 	//Update a volunteer entry
-	@GET
+	@POST
 	@Path("/edit")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String delVolunteerEntry(@QueryParam("name") String name, 
-			@QueryParam("comm") String comm, @QueryParam("subCom") String subCom, 
-			@QueryParam("pos") String pos) throws IOException{
+	public String delVolunteerEntry(@FormParam("name") String name, 
+			@FormParam("comm") String comm, @FormParam("subCom") String subCom, 
+			@FormParam("pos") String pos) throws IOException{
 	
 		return volService.editVolunteer(name, comm, subCom, pos);	
 	}
 	
 	//Delete a volunteer entry
-	@GET
+	@POST
 	@Path("/delete")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String delVolunteerEntry(@QueryParam("name") String name) throws IOException{
+	public String delVolunteerEntry(@FormParam("name") String name) throws IOException{
 	
 		return volService.delVolunteer(name);	
 	}
